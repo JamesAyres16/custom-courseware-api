@@ -1,0 +1,49 @@
+[tool.poetry]
+name = "custom-courseware-api"
+version = "0.1.0"
+description = "REST API for interacting with Custom Courseware data"
+authors = ["James Ayres <james.ayres16@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = {extras = ["standard"], version = "^0.115.0"}
+sqlalchemy = "^2.0.35"
+psycopg2-binary = "^2.9.9"
+pyjwt = "^2.9.0"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+requests = "^2.32.3"
+alembic = "^1.13.3"
+pydantic-settings = "^2.6.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+pytest-faker = "^2.0.0"
+pylint = {extras = ["spelling"], version = "^3.3.1"}
+
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = [
+  "--strict-markers",
+  "--strict-config",
+  "-ra"
+]
+
+
+[tool.pylint.design]
+min-public-methods = 1
+max-line-length = 80
+
+[tool.pylint."messages control"]
+enable = [
+  "raw-checker-failed", "bad-inline-option", "file-ignored",
+  "useless-suppression", "deprecated-pragma", "use-symbolic-message-instead",
+  "use-implicit-booleaness-not-comparison-to-string", "locally-disabled",
+  "use-implicit-booleaness-not-comparison-to-zero"
+]
+disable = ["suppressed-message"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
