@@ -13,7 +13,7 @@ class Base(DeclarativeBase): # pylint: disable=too-few-public-methods
     """ base class for all models """
 
 default_engine = create_engine(
-    config.sqlalchemy_url, poolclass=StaticPool
+    config.SQLALCHEMY_URL, poolclass=StaticPool
 )
 
 

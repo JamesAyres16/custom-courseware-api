@@ -1,7 +1,25 @@
 services:
+  api:
+    build: .
+    env_file: .env
+    ports:
+      - "8000:8000"
+    develop:
+      watch:
+        - action: sync
+          path: alembic
+          target: /usr/local/app/alembic
+        - action: sync
+          path: src
+          target: /usr/local/app/src
+        - action: sync
+          path: test
+          target: /usr/local/app/test
+
+    depends_on:
+      - database
+
   database:
     image: postgres
     environment:
       POSTGRES_PASSWORD: postgres
-    ports:
-      - "5432:5432"

@@ -13,7 +13,7 @@ from .config import config
 
 
 openid_url = "{}/realms/{}/protocol/openid-connect".format(
-    config.keycloak_url, config.keycloak_realm
+    config.KEYCLOAK_URL, config.KEYCLOAK_REALM
 )
 oauth2_scheme = OAuth2AuthorizationCodeBearer(
     authorizationUrl=f"{openid_url}/auth",

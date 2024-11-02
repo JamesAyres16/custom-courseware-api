@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "custom-courseware-api"
 package-mode = false
-version = "0.1.0"
+version = "0.0.1"
 description = "REST API for interacting with Custom Courseware data"
 authors = ["James Ayres <james.ayres16@gmail.com>"]
 readme = "README.md"
